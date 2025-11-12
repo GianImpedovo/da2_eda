@@ -49,6 +49,6 @@ cd /home/ubuntu/EDA
 
 # Levantar los servicios definidos en el docker-compose.yml en modo detached (-d)
 # Como ya instalamos docker-compose-plugin, usamos 'docker compose'
-docker compose up -d
+docker compose up --build -d
 
 echo "--- Script de User Data Finalizado ---"
