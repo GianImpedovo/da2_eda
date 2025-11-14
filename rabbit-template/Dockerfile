@@ -1,7 +1,7 @@
 FROM rabbitmq:4-management
 
 # Copiar configuración y definitions al contenedor
-COPY rabbit.conf /etc/rabbitmq/rabbitmq.conf
+COPY rabbitmq.conf /etc/rabbitmq/rabbitmq.conf
 COPY definitions.json /etc/rabbitmq/definitions.json
 
 # Habilitar definiciones
