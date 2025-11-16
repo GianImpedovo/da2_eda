@@ -312,11 +312,8 @@
     }
   ],
   "bindings": [
-    {"source":"citypass_def","vhost":"/","destination":"trazabilidad","destination_type":"queue","routing_key":"publish.#","arguments":{}},
-    {"source":"citypass_def","vhost":"/","destination":"trazabilidad","destination_type":"queue","routing_key":"deliver.#","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"trazabilidad","destination_type":"queue","routing_key":"deliver.#","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"trazabilidad","destination_type":"queue","routing_key":"publish.#","arguments":{}},
-
+    {"source":"amq.rabbitmq.trace","vhost":"/","destination":"trazabilidad","destination_type":"queue","routing_key":"publish.#","arguments":{}},
+    {"source":"amq.rabbitmq.trace","vhost":"/","destination":"trazabilidad","destination_type":"queue","routing_key":"deliver.#","arguments":{}},
 
     {"source":"citypass_def","vhost":"/","destination":"analitica_def","destination_type":"queue","routing_key":"#","arguments":{}},
     {"source":"citypass_def","vhost":"/","destination":"movilidad_def","destination_type":"queue","routing_key":"reclamos.movilidad.#","arguments":{}},
