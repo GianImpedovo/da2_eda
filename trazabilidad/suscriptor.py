@@ -1,9 +1,9 @@
 import json
 import pika
 
-credentials = pika.PlainCredentials('user_analitica', 'pass_analitica')
+credentials = pika.PlainCredentials('user_emergencias', 'pass_emergencias')
 parameters = pika.ConnectionParameters(
-    host='3.80.53.200',
+    host='3.85.212.112',
     port=5672,
     virtual_host='/',
     credentials=credentials
@@ -13,20 +13,9 @@ connection = pika.BlockingConnection(parameters)
 channel = connection.channel()
 
 queues = [
-    'movilidad_def',
-    'analitica_def',
-    'cultura_def',
     'emergencias_def',
-    'movilidad_def',
-    'reclamos_def',
-    'residuos_def',
-    'movilidad_dlx',
-    'analitica_dlx',
-    'cultura_dlx',
     'emergencias_dlx',
-    'movilidad_dlx',
-    'reclamos_dlx',
-    'residuos_dlx'
+
 ]
 
 
@@ -55,7 +44,7 @@ def callback(ch, method, properties, body):
         trace_data["original_routing_key"] = death_info.get('routing-keys', [None])[0]
         trace_data["original_queue"] = death_info.get('queue')
         trace_data["original_exchange"] = death_info.get('exchange')
-        trace_data["death_reason"] = death_info.get('reason')  # rejected, expired, maxlen
+        trace_data["death_reason"] = death_info.get('reason')
         trace_data["death_count"] = death_info.get('count', 0)
         trace_data["is_dead_letter"] = True
 
