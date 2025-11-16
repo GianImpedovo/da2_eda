@@ -348,9 +348,10 @@
     {"source":"citypass_def","vhost":"/","destination":"emergencias_def","destination_type":"queue","routing_key":"movilidad.viaje.inicio","arguments":{}},
     {"source":"citypass_def","vhost":"/","destination":"reclamos_def","destination_type":"queue","routing_key":"movilidad.viaje.inicio","arguments":{}},
     {"source":"citypass_def","vhost":"/","destination":"cultura_def","destination_type":"queue","routing_key":"movilidad.viaje.inicio","arguments":{}},
-
     {"source":"citypass_def","vhost":"/","destination":"movilidad_def","destination_type":"queue","routing_key":"cultura.eventos.lista","arguments":{}},
     {"source":"citypass_def","vhost":"/","destination":"movilidad_def","destination_type":"queue","routing_key":"reclamos.movilidad.lista","arguments":{}},
+    {"source":"citypass_def","vhost":"/","destination":"movilidad_def","destination_type":"queue","routing_key":"emergencias.emergencias.lista","arguments":{}},
+
 
     {"source":"citypass_def","vhost":"/","destination":"cultura_def","destination_type":"queue","routing_key":"movilidad.estaciones.lista","arguments":{}},
     {"source":"citypass_def","vhost":"/","destination":"cultura_def","destination_type":"queue","routing_key":"residuos.camion.posicion","arguments":{}},
