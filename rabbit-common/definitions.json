@@ -154,7 +154,7 @@
       "durable": true,
       "auto_delete": false,
       "arguments": {
-        "x-dead-letter-exchange": "citypass_dlx",
+        "x-dead-letter-exchange": "analitica_dlx",
         "x-max-length": 1000,
         "x-message-ttl": 15000,
         "x-overflow": "drop-head",
@@ -194,7 +194,7 @@
       "durable": true,
       "auto_delete": false,
       "arguments": {
-        "x-dead-letter-exchange": "citypass_dlx",
+        "x-dead-letter-exchange": "movilidad_dlx",
         "x-max-length": 1000,
         "x-message-ttl": 15000,
         "x-overflow": "drop-head",
@@ -207,7 +207,7 @@
       "durable": true,
       "auto_delete": false,
       "arguments": {
-        "x-dead-letter-exchange": "citypass_dlx",
+        "x-dead-letter-exchange": "emergencias_dlx",
         "x-max-length": 1000,
         "x-message-ttl": 15000,
         "x-overflow": "drop-head",
@@ -220,7 +220,7 @@
       "durable": true,
       "auto_delete": false,
       "arguments": {
-        "x-dead-letter-exchange": "citypass_dlx",
+        "x-dead-letter-exchange": "reclamos_dlx",
         "x-max-length": 1000,
         "x-message-ttl": 15000,
         "x-overflow": "drop-head",
@@ -242,7 +242,7 @@
       "durable": true,
       "auto_delete": false,
       "arguments": {
-        "x-dead-letter-exchange": "citypass_dlx",
+        "x-dead-letter-exchange": "cultura_dlx",
         "x-max-length": 1000,
         "x-message-ttl": 15000,
         "x-overflow": "drop-head",
@@ -255,7 +255,7 @@
       "durable": true,
       "auto_delete": false,
       "arguments": {
-        "x-dead-letter-exchange": "citypass_dlx",
+        "x-dead-letter-exchange": "residuos_dlx",
         "x-max-length": 1000,
         "x-message-ttl": 15000,
         "x-overflow": "drop-head",
@@ -302,14 +302,60 @@
       "arguments": {}
     },
     {
-      "name": "citypass_dlx",
+      "name": "analitica_dlx",
       "vhost": "/",
-      "type": "topic",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "cultura_dlx",
+      "vhost": "/",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "reclamos_dlx",
+      "vhost": "/",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "residuos_dlx",
+      "vhost": "/",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "emergencias_dlx",
+      "vhost": "/",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "movilidad_dlx",
+      "vhost": "/",
+      "type": "fanout",
       "durable": true,
       "auto_delete": false,
       "internal": false,
       "arguments": {}
     }
+
   ],
   "bindings": [
     {"source":"amq.rabbitmq.trace","vhost":"/","destination":"trazabilidad","destination_type":"queue","routing_key":"publish.#","arguments":{}},
@@ -324,7 +370,6 @@
     {"source":"citypass_def","vhost":"/","destination":"movilidad_def","destination_type":"queue","routing_key":"cultura.evento.#","arguments":{}},
     {"source":"citypass_def","vhost":"/","destination":"residuos_def","destination_type":"queue","routing_key":"cultura.evento.#","arguments":{}},
     {"source":"citypass_def","vhost":"/","destination":"residuos_def","destination_type":"queue","routing_key":"reclamos.cultura.plaza.catastrofe","arguments":{}},
-    {"source":"citypass_def","vhost":"/","destination":"cultura_def","destination_type":"queue","routing_key":"reclamos.cultura.plaza.catastrofe","arguments":{}},
     {"source":"citypass_def","vhost":"/","destination":"emergencias_def","destination_type":"queue","routing_key":"reclamos.cultura.plaza.catastrofe","arguments":{}},
 
 
@@ -340,41 +385,7 @@
     {"source":"citypass_def","vhost":"/","destination":"cultura_def","destination_type":"queue","routing_key":"residuos.camion.posicion","arguments":{}},
     {"source":"citypass_def","vhost":"/","destination":"residuos_def","destination_type":"queue","routing_key":"movilidad.ruta.actualizada","arguments":{}},
     {"source":"citypass_def","vhost":"/","destination":"cultura_def","destination_type":"queue","routing_key":"emergencias.inundacion.alerta","arguments":{}},
-    {"source":"citypass_def","vhost":"/","destination":"movilidad_def","destination_type":"queue","routing_key":"emergencias.inundacion.alerta","arguments":{}},
-
-
-
-
-
-    {"source":"citypass_dlx","vhost":"/","destination":"analitica_dlx","destination_type":"queue","routing_key":"#","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"movilidad_dlx","destination_type":"queue","routing_key":"reclamos.movilidad.#","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"cultura_dlx","destination_type":"queue","routing_key":"reclamos.cultura.#","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"emergencias_dlx","destination_type":"queue","routing_key":"reclamos.emergencias.#","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"residuos_dlx","destination_type":"queue","routing_key":"reclamos.residuos.#","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"reclamos_dlx","destination_type":"queue","routing_key":"*.reclamo.#","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"movilidad_dlx","destination_type":"queue","routing_key":"cultura.evento.#","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"residuos_dlx","destination_type":"queue","routing_key":"cultura.evento.#","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"residuos_dlx","destination_type":"queue","routing_key":"reclamos.cultura.plaza.catastrofe","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"cultura_dlx","destination_type":"queue","routing_key":"reclamos.cultura.plaza.catastrofe","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"emergencias_dlx","destination_type":"queue","routing_key":"reclamos.cultura.plaza.catastrofe","arguments":{}},
-
-
-    {"source":"citypass_dlx","vhost":"/","destination":"emergencias_dlx","destination_type":"queue","routing_key":"movilidad.viaje.estado","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"reclamos_dlx","destination_type":"queue","routing_key":"movilidad.viaje.estado","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"cultura_dlx","destination_type":"queue","routing_key":"movilidad.viaje.estado","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"movilidad_dlx","destination_type":"queue","routing_key":"cultura.eventos.lista","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"movilidad_dlx","destination_type":"queue","routing_key":"reclamos.movilidad.lista","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"movilidad_dlx","destination_type":"queue","routing_key":"emergencias.emergencias.lista","arguments":{}},
-
-
-    {"source":"citypass_dlx","vhost":"/","destination":"cultura_dlx","destination_type":"queue","routing_key":"movilidad.estaciones.lista","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"cultura_dlx","destination_type":"queue","routing_key":"residuos.camion.posicion","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"residuos_dlx","destination_type":"queue","routing_key":"movilidad.ruta.actualizada","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"cultura_dlx","destination_type":"queue","routing_key":"emergencias.inundacion.alerta","arguments":{}},
-    {"source":"citypass_dlx","vhost":"/","destination":"movilidad_dlx","destination_type":"queue","routing_key":"emergencias.inundacion.alerta","arguments":{}}
-
-
-
+    {"source":"citypass_def","vhost":"/","destination":"movilidad_def","destination_type":"queue","routing_key":"emergencias.inundacion.alerta","arguments":{}}
     
   ]
 }

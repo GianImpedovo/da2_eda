@@ -15,6 +15,10 @@ channel = connection.channel()
 queues = [
     'emergencias_def',
     'emergencias_dlx',
+    'analitica_dlx',
+    'cultura_dlx',
+    'reclamos_dlx',
+    'movilidad_dlx'
 
 ]
 
