@@ -372,10 +372,10 @@
     {"source":"citypass_def","vhost":"/","destination":"residuos_def","destination_type":"queue","routing_key":"reclamos.cultura.plaza.catastrofe","arguments":{}},
     {"source":"citypass_def","vhost":"/","destination":"emergencias_def","destination_type":"queue","routing_key":"reclamos.cultura.plaza.catastrofe","arguments":{}},
 
-    {"source":"citypass_def","vhost":"/","destination":"residuos_def","destination_type":"queue","routing_key":"emergencias.alerta","arguments":{}},
-    {"source":"citypass_def","vhost":"/","destination":"movilidad_def","destination_type":"queue","routing_key":"emergencias.alerta","arguments":{}},
-    {"source":"citypass_def","vhost":"/","destination":"cultura_def","destination_type":"queue","routing_key":"emergencias.alerta","arguments":{}},
-    {"source":"citypass_def","vhost":"/","destination":"reclamos_def","destination_type":"queue","routing_key":"emergencias.alerta","arguments":{}},
+    {"source":"citypass_def","vhost":"/","destination":"residuos_def","destination_type":"queue","routing_key":"emergencias.alerta.#","arguments":{}},
+    {"source":"citypass_def","vhost":"/","destination":"movilidad_def","destination_type":"queue","routing_key":"emergencias.alerta.#","arguments":{}},
+    {"source":"citypass_def","vhost":"/","destination":"cultura_def","destination_type":"queue","routing_key":"emergencias.alerta.#","arguments":{}},
+    {"source":"citypass_def","vhost":"/","destination":"reclamos_def","destination_type":"queue","routing_key":"emergencias.alerta.#","arguments":{}},
 
     {"source":"citypass_def","vhost":"/","destination":"emergencias_def","destination_type":"queue","routing_key":"movilidad.viaje.estado","arguments":{}},
     {"source":"citypass_def","vhost":"/","destination":"reclamos_def","destination_type":"queue","routing_key":"movilidad.viaje.estado","arguments":{}},
