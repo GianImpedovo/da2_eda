@@ -3,7 +3,7 @@ import pika
 
 credentials = pika.PlainCredentials('user_emergencias', 'pass_emergencias')
 parameters = pika.ConnectionParameters(
-    host='98.88.22.187',
+    host='34.228.83.85',
     port=5672,
     virtual_host='/',
     credentials=credentials

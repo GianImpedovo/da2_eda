@@ -4,7 +4,7 @@ import time
 import uuid
 
 credentials = pika.PlainCredentials('user_movilidad', 'pass_movilidad')
-parameters = pika.ConnectionParameters(host='98.88.22.187', port=5672, virtual_host='/', credentials=credentials)
+parameters = pika.ConnectionParameters(host='34.228.83.85', port=5672, virtual_host='/', credentials=credentials)
 
 connection = pika.BlockingConnection(parameters)
 channel = connection.channel()
