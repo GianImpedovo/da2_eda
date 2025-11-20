@@ -1,7 +1,7 @@
 import json
 import pika
 
-credentials = pika.PlainCredentials('user_emergencias', 'pass_emergencias')
+credentials = pika.PlainCredentials('guest', 'guest')
 parameters = pika.ConnectionParameters(
     host='34.228.83.85',
     port=5672,
@@ -21,7 +21,6 @@ queues = [
     'movilidad_dlx'
 
 ]
-
 
 def callback(ch, method, properties, body):
     trace_data = {}
