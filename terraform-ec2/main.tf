@@ -131,6 +131,14 @@ resource "aws_security_group" "ec2_sg" {
     cidr_blocks = [var.allowed_cidr]
   }
 
+  ingress {
+    description = "Monitor"
+    from_port   = 5500
+    to_port     = 5500
+    protocol    = "tcp"
+    cidr_blocks = [var.allowed_cidr]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0

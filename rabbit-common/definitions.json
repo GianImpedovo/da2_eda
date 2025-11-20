@@ -69,6 +69,13 @@
         "None"
       ],
       "limits": {}
+    },
+    {
+      "name": "user_ldap",
+      "password_hash": "wkqjSMSwPkA1QfAFg9kiIUgC2x1HXKA3jDcIN22p2AT1cn/O",
+      "hashing_algorithm": "rabbit_password_hashing_sha256",
+      "tags": ["None"],
+      "limits": {}
     }
   ],
   "vhosts": [
@@ -128,6 +135,13 @@
     },
     {
       "user": "user_emergencias",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    },
+    {
+      "user": "user_ldap",
       "vhost": "/",
       "configure": ".*",
       "write": ".*",
@@ -393,9 +407,8 @@
     {"source":"citypass_def","vhost":"/","destination":"cultura_def","destination_type":"queue","routing_key":"emergencias.inundacion.#","arguments":{}},
     {"source":"citypass_def","vhost":"/","destination":"movilidad_def","destination_type":"queue","routing_key":"emergencias.inundacion.#","arguments":{}},
     {"source":"citypass_def","vhost":"/","destination":"reclamos_def","destination_type":"queue","routing_key":"emergencias.inundacion.#","arguments":{}},
-    {"source":"citypass_def","vhost":"/","destination":"cultura_def","destination_type":"queue","routing_key":"movilidad.alerta.camino","arguments":{}},
     {"source":"citypass_def","vhost":"/","destination":"residuos_def","destination_type":"queue","routing_key":"movilidad.alerta.camino","arguments":{}},
-    {"source":"citypass_def","vhost":"/","destination":"movilidad_def","destination_type":"queue","routing_key":"emergencias.alerta.*","arguments":{}},
+    {"source":"citypass_def","vhost":"/","destination":"residuos_def","destination_type":"queue","routing_key":"movilidad.alerta.resuelta","arguments":{}},
     
 
     {"source":"analitica_dlx","vhost":"/","destination":"analitica_dlx","destination_type":"queue","routing_key": "","arguments":{}},
