@@ -4,7 +4,7 @@ import time
 import uuid
 
 credentials = pika.PlainCredentials('user_movilidad', 'pass_movilidad')
-parameters = pika.ConnectionParameters(host='98.88.22.187', port=5672, virtual_host='/', credentials=credentials)
+parameters = pika.ConnectionParameters(host='eda-nlb-6fd7b3b5a64e8d75.elb.us-east-1.amazonaws.com', port=5672, virtual_host='/', credentials=credentials)
 
 connection = pika.BlockingConnection(parameters)
 channel = connection.channel()

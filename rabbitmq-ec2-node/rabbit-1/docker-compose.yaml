@@ -1,11 +1,11 @@
 services:
   rabbit1:
     image: rabbitmq:4-management
-    container_name: rabbit1
-    hostname: ip-10.0.9.93.ec2.internal
+    container_name: rabbit
+    hostname: ${HOSTNAME_FQDN}
     environment:
       RABBITMQ_USE_LONGNAME: "true"
-      RABBITMQ_NODENAME: "rabbit@ip-10.0.9.93.ec2.internal"
+      RABBITMQ_NODENAME: "rabbit@${HOSTNAME_FQDN}"
       RABBITMQ_ERLANG_COOKIE: "RRKYXMQLSXURFZSUXFFU"
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
