@@ -1,5 +1,5 @@
 services:
-  rabbit1:
+  rabbit:
     image: rabbitmq:4-management
     container_name: rabbit
     hostname: ${HOSTNAME_FQDN}
